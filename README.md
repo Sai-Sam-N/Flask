@@ -6,7 +6,7 @@
 - WSGI : Web Server Gateway Interface. A standard / a protocol. <br>
 <b>Explanation</b>: Web applications are hosted in a web server (Apache, IIS). Whenever a request to access the hosted a web application is sent to the web server, a request is sent from the web server to the web application. Now there will be a standard or a protocol by which this request & response communcation happens between the web server and the web application. For this communication, we use something known as WSGI (Web Server Gateway Interface). The web application will contain callable functions, APIs, functionalities which would get called and the response will be received at the web server's end.
 <br>
-![alt text](image.png)
+![](image.png)
 <br>
 - JINJA2 : a Web templating system. It basically combines a web tempalte along with a certain data source. The data source will dynamically put the data into the template and render the dynamic page. <br>
 <b>Example </b>: Suppose we have a ML application, whose aim is to classify whether the given image is a cat or a dog. The image is to be uploaded and submitted via the web page, at the backend level, it is processed by the ML model (either the pickle file or the .h5 file of the ML model) and upon submission, the response (here, the output of the ML model) is to be displayed on the webpage `dynamically` (the web page is dynamically rendered). 
