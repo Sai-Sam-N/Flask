@@ -34,4 +34,32 @@ Apparently whenever this guy lears something, he creates an environment. Not me 
 ## Understanding a sample flask web application skeleton
 - `if __name__ == '__main__':` = starting point of program execution.
 - `app = Flask(__name__)` = `app` here is the object of Flask app. The way that we've now created the object of the Flask app, this is our WSGI application, which will be interacting / communicating with the server.
-- The decorator : `@app.route()`, takes two parameters - rule (string type : url of the webpage) and options
+- The decorator : `@app.route()`, takes two parameters - rule (string type : url of the webpage. `/` means root) and methods (POST, GET, , ).
+- `app.run()` : takes 4 parameters. `debug=True` will keep refreshing the application & keeps restarting the server as and when you save the code. Others are `host` and `port` which are handy when deploying it on the server.
+- You cannot use the same function name for two decorators (two different urls)
+
+## Building URLs dynamically
+### Flask variable rules and URL binding
+`@app.route('/success/<int:score>')` : the url also carries an integer variable called `score`. If its a string variable, we use `<score>`.
+This is basically building urls dynamically using variables.
+We can use the following two libraries:
+1. `redirect` : ensures that it redirects to some web page / url.
+2. `url_for` : used for creating this url. Has two parameters - which page you wanna redirect to & the required parameters of that url. <b>Note:</b> the url is the string you provide inside the app.route() decorator you want to redirect to, not the function of the decorator. Also the rest of the parameters you provide gotta be provided as `parameter_name = argument_value` and not just `argument_value`. Otherwise you may encounter <p style="color:red;">`TypeError: url_for() takes 1 positional argument but 2 were given` </p>
+
+## Integrating HTML with FLASK Web Framework with HTTP VERBS (GET and POST)
+Libraries required: 
+1. render_template - helps rendering a HTML page. Uses a folder structure: 'root/template' folder contains html files.
+Syntax : `return render_template('index.html')` returns the rendered html template.
+
+2. request - helps in reading the values received from forms that use POST to get data from the user.
+### Integrate HTML with FLASK
+the `<form action="/submit" method="post">` in HTML should match `@app.route('/submit',methods=['POST','GET'])` in the flask application.
+### HTTP verb GET and POST
+- POST : the user posts data
+- GET : 
+
+## Understanding Jinja2 template engine in Flask Web framework
+4 ways
+1. {%...%} for conditional statements
+2. {{   }} expressions to print output
+3. {#   #} this is for comments
