@@ -48,7 +48,7 @@ We can use the following two libraries:
 
 ## Integrating HTML with FLASK Web Framework with HTTP VERBS (GET and POST)
 Libraries required: 
-1. render_template - helps rendering a HTML page. Uses a folder structure: 'root/template' folder contains html files.
+1. render_template - helps rendering a HTML page. Uses a folder structure: `'root/template'` folder contains html files. `'root/static/css'` contains CSS files. `'root/static/script'` contains JS files.
 Syntax : `return render_template('index.html')` returns the rendered html template.
 
 2. request - helps in reading the values received from forms that use POST to get data from the user.
@@ -62,4 +62,10 @@ the `<form action="/submit" method="post">` in HTML should match `@app.route('/s
 4 ways
 1. {%...%} for conditional statements
 2. {{   }} expressions to print output
-3. {#   #} this is for comments
+3. {#   #} this is for comments.
+
+# Integrating CSS and Javascript in Flask Web Framework
+To add CSS using jinja template to a HTML file, do the following in the html file:
+Inside the `<head>` tag --> `<link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}"> </link>` <br>
+To add JS using jinja templlate to a HTML file, do the following in the html file:
+Inside the `<head>` tag --> `<script type="text/javascript" src="{{ url_for('static',filename='script/script.js') }}"></script>`
