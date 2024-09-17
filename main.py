@@ -24,12 +24,18 @@ def fail(score):
 @app.route('/submit',methods=['POST','GET'])
 def submit():
     total_score = 0
+    the_dictionary = {}
     if request.method == 'POST':
         science = float(request.form['science'])
         maths = float(request.form['maths'])
         c = float(request.form['c'])
         datascience = float(request.form['datascience'])
         total_score = (science+maths+c+datascience)/4
+        
+        the_dictionary['science'] = science
+        the_dictionary['maths'] = maths
+        the_dictionary['c'] = c
+        the_dictionary['total_score'] = total_score
     
     # res = ''
     # WRITING THIS CONDITION IN JINJA2 TEMPLATE
@@ -40,8 +46,11 @@ def submit():
     
     # return render_template('result.html',result=res)
 
-    return redirect(url_for('decision', score=total_score))
+    # return redirect(url_for('decision', score=total_score))
+
+
+    return render_template('table.html',result = the_dictionary)
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)
