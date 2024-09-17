@@ -6,6 +6,10 @@ app = Flask(__name__)
 def welcome():
     return render_template('index.html')
 
+@app.route('/decision/<int:score>')
+def decision(score):
+    return render_template('decide.html',result=score)
+
 @app.route('/success/<int:score>')
 def success(score):
     return render_template('success.html', result=score)
@@ -13,6 +17,8 @@ def success(score):
 @app.route('/fail/<int:score>')
 def fail(score):
     return render_template('fail.html', result=score)
+
+@app.route('/table')
 
 #Result checker
 @app.route('/submit',methods=['POST','GET'])
@@ -25,13 +31,16 @@ def submit():
         datascience = float(request.form['datascience'])
         total_score = (science+maths+c+datascience)/4
     
-    res = ''
-    if total_score >= 35:
-        res = 'success'
-    else:
-        res = 'fail'
-    return redirect(url_for(res, score=total_score))
+    # res = ''
+    # WRITING THIS CONDITION IN JINJA2 TEMPLATE
+    # if total_score >= 35:
+    #     res = 'success'
+    # else:
+    #     res = 'fail'
+    
     # return render_template('result.html',result=res)
+
+    return redirect(url_for('decision', score=total_score))
 
 
 if __name__ == '__main__':
