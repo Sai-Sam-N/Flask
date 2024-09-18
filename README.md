@@ -59,7 +59,7 @@ the `<form action="/submit" method="post">` in HTML should match `@app.route('/s
 - GET : 
 
 ## Understanding Jinja2 template engine in Flask Web framework
-4 ways
+3 ways :
 1. {%...%} for conditional statements
 2. {{   }} expressions to print output
 3. {#   #} this is for comments.
