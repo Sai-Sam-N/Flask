@@ -69,3 +69,6 @@ To add CSS using jinja template to a HTML file, do the following in the html fil
 Inside the `<head>` tag --> `<link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}"> </link>` <br>
 To add JS using jinja templlate to a HTML file, do the following in the html file:
 Inside the `<head>` tag --> `<script type="text/javascript" src="{{ url_for('static',filename='script/script.js') }}"></script>`
+
+# Face Recognition project in Flask Web Framework - separate project
+(Will link the repo shortly)
